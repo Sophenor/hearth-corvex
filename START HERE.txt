@@ -1,0 +1,81 @@
+HEARTH FOR CORVEX — WINDOWS PREVIEW 0.1
+
+An everyday chat assistant using your own Corvex account.
+
+GET STARTED
+1. Right-click the ZIP and choose Extract All. Keep the extracted folder.
+2. Open Hearth.exe. You do not need Codex, Python, Node or an OpenAI subscription.
+3. Click Open Corvex API keys. Sign in to YOUR Corvex account in your browser.
+4. Choose New Key, name it Hearth, and copy the full key.
+5. Paste that key into Hearth and click Connect and start chatting.
+
+This is a connection key, not your password. Never send your key to someone else.
+If you have not yet joined Corvex, use the signup invitation you were given first.
+Hearth does not create a Corvex account or grant promotional credits.
+
+EVERYDAY USE
+Type a message and press Enter. Shift + Enter starts a new line.
+Your conversations are saved automatically. Find them in the left sidebar.
+Choose another available model from the menu at the top.
+Settings > Refresh updates the model list. Newly announced models only appear
+when they are actually available on your account.
+Use Export to save a readable Markdown copy of a conversation.
+You can right-click Hearth.exe and use Windows' pin options for easier access.
+
+TRY THESE
+- Help me write a polite email asking to change an appointment.
+- Help me plan three easy dinners. Ask what ingredients I already have.
+- My laptop feels slow. Check it and explain the findings before changing anything.
+- Summarise the text files in this folder and help me draft a short report.
+
+COMPUTER HELP AND FILES
+Computer help is off initially. Turn it on if you want CPU, memory, disk-space
+and open-app diagnostics. These results can be sent to Corvex.
+Choose folder gives access to small text files in one chosen folder and its
+ordinary subfolders. Avoid folders with private passwords or sensitive records.
+Each file save and normal app-close request requires your approval.
+Cancel is the default. The app never force-quits programs, deletes your files,
+installs software, runs arbitrary commands or sends emails.
+Access resets when Hearth closes. You can also turn it off in the composer.
+
+VOICE
+Dictate uses an installed Windows offline speech recognizer if available.
+Click it again to stop, and check the words before sending.
+If unavailable, click the message box and press Windows + H for Windows voice
+typing. That Windows feature may send audio to Microsoft's online service.
+Hearth includes no large speech model. Voice availability and accuracy vary.
+
+YOUR DATA AND CREDITS
+Prompts and permitted file/diagnostic results go directly to Corvex.
+Chats stay on this Windows account in %LOCALAPPDATA%\HearthCorvex.
+They are not automatically backed up to the cloud or synced to another computer.
+Chats themselves are ordinary local files; the connection key is protected using
+Windows account encryption. Someone with access to your signed-in account can
+still access its data. Conversation exports do not contain the connection key.
+Token counts and estimated API cost are shown where Corvex reports usage.
+These are not your billed balance. Check Corvex for credit expiry and charges.
+No purchase or automatic top-up is performed by Hearth.
+
+IF SOMETHING DOES NOT WORK
+No runtime: install Microsoft Edge WebView2 Runtime using the Microsoft page
+Hearth offers, then reopen. Most recent Windows installations already have it.
+No connection: check internet access, the API key and your Corvex account.
+Rate limit: wait, then choose Retry. Retrying can use more credits.
+An interrupted message is saved and is not silently restarted when you reopen.
+A blank model answer triggers at most one extra final-answer request. If that
+also fails, the app asks you to try a smaller follow-up.
+There is one active reply at a time. Keep Hearth open until it finishes.
+
+ABOUT THIS PREVIEW
+Built for 64-bit Intel/AMD Windows 10/11, with Windows 11 recommended.
+Not a Mac build, a 32-bit Windows build, or a native Windows ARM build.
+This is an unsigned independent preview, not an official Corvex product.
+Windows may show an unknown-publisher warning. Verify the source with the person
+who sent it; do not disable your antivirus or Windows security protections.
+Some email services block apps or large ZIPs. A trusted download link may be needed.
+No PDF/Word/image attachments, live web search, full desktop automation or cloud
+chat sync in this version. Email drafting is supported; sending is up to you.
+Answers appear when the model completes, with activity and elapsed time meanwhile.
+
+Source code, build instructions and dependency licences accompany this project.
+Please try it yourself before distributing it widely to family and friends.
