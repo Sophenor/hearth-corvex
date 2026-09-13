@@ -2,6 +2,8 @@
 
 A friendly Windows chat app with saved conversations, powered by **your own Corvex Token Factory account**.
 
+**On a Mac?** The [separate Mac preview and instructions](#hearth-for-mac) are below. The Windows download and walkthrough are unchanged.
+
 ## [⬇ Download Hearth for Windows](https://github.com/Sophenor/hearth-corvex/releases/latest/download/Hearth-Windows.zip)
 
 **Windows 10/11 · 64-bit Intel/AMD · approximately 50 MB · preview 0.1**
@@ -52,3 +54,25 @@ Hearth uses .NET 10, WinForms/WebView2, and Microsoft's open-source AI function-
 - [Source licence](LICENSE.txt) and [third-party notices](THIRD-PARTY-NOTICES.txt)
 
 To build from source on Windows, install the .NET 10 SDK and run `./build.ps1` from the repository folder. Source archives are available on the release page; ordinary users should download **Hearth-Windows.zip**, not GitHub's source-code ZIP.
+
+## Hearth for Mac
+
+### [⬇ Download Hearth for Mac](https://github.com/Sophenor/hearth-corvex/releases/download/mac-v0.1.0/Hearth-Mac.zip)
+
+**macOS 13 Ventura or newer · Apple Silicon and Intel · approximately 0.5 MB · preview 0.1.0**
+
+1. Download the Mac ZIP above and double-click it to extract it.
+2. Drag **Hearth** into **Applications**, then open it.
+3. If macOS cannot verify the developer, go to **System Settings → Privacy & Security → Open Anyway** for Hearth, then confirm. This independent preview is not Apple Developer-ID signed or notarized; do not turn off Mac security. [Apple's guidance](https://support.apple.com/en-gb/102445).
+4. Follow the app's setup to create a key in your own Corvex account, then paste that **API key**, not your password, into Hearth once.
+5. Start chatting. The included **START HERE - Mac.txt** has the complete family setup guide.
+
+The Mac app has saved chats, model switching, light/dark themes, export, Keychain storage, optional Mac performance checks and optional small-text-file tools. It uses macOS's built-in frameworks; no local AI model, .NET installation, GitHub account or OpenAI subscription is needed. Corvex controls account credits and pricing.
+
+Saving a draft or requesting an app quit needs your approval. There is no file deletion, force quit or arbitrary command tool. macOS Dictation is optional and depends on your Mac/settings. Chats remain on this Mac; they do not automatically sync with the Windows app or Corvex web chat. This preview does not include web search, PDF/Word/image reading or email sending.
+
+[Mac setup and troubleshooting](mac/START%20HERE%20-%20Mac.txt) · [Mac release](https://github.com/Sophenor/hearth-corvex/releases/tag/mac-v0.1.0) · [Mac source/build details](mac/README.md) · [Mac verification and limits](docs/MAC-VERIFICATION.md)
+
+![Hearth's native Mac interface, shown with synthetic connection and model data](screenshots/mac-welcome.png)
+
+The universal package was built and checked on both Apple Silicon and Intel macOS 15 runners. This separate Mac preview does not replace the existing Windows release or change its download link.
