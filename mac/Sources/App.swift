@@ -29,7 +29,7 @@ import Foundation
             window.title = "Hearth · Corvex"; window.minSize = NSSize(width: 780, height: 560); window.delegate = self
             window.contentView = web; window.center(); window.isReleasedWhenClosed = false
             guard let url = Bundle.main.url(forResource: "app", withExtension: "html") else { throw HearthError.message("The app resources are missing. Download Hearth again from its GitHub release.") }; uiURL = url
-            if uiTest { window.setFrameOrigin(NSPoint(x: -20000, y: -20000)); window.orderBack(nil) }
+            if uiTest && ProcessInfo.processInfo.environment["CI"] == nil { window.setFrameOrigin(NSPoint(x: -20000, y: -20000)); window.orderBack(nil) }
             else { window.makeKeyAndOrderFront(nil); NSApp.activate(ignoringOtherApps: true) }
             web.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
             if uiTest { watchdog = Task { try? await Task.sleep(nanoseconds: 60_000_000_000); if !Task.isCancelled { writeUITestFailure("UI startup timed out"); exit(1) } } }
