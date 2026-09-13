@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleExecutable</key><string>Hearth</string>
+<key>CFBundleIdentifier</key><string>com.sophenor.hearth</string>
+<key>CFBundleName</key><string>Hearth</string>
+<key>CFBundleDisplayName</key><string>Hearth</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>0.1.0</string>
+<key>CFBundleVersion</key><string>1</string>
+<key>CFBundleIconFile</key><string>Hearth</string>
+<key>LSMinimumSystemVersion</key><string>13.0</string>
+<key>NSPrincipalClass</key><string>NSApplication</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>If you choose dictation, Hearth lets you enter your message using macOS dictation.</string>
+<key>NSAppleEventsUsageDescription</key><string>Only after you approve a close request, Hearth can ask a selected app to quit normally.</string>
+<key>NSDocumentsFolderUsageDescription</key><string>Read small text files only in the folder you select for Hearth.</string>
+<key>NSDesktopFolderUsageDescription</key><string>Read small text files only in the folder you select for Hearth.</string>
+</dict></plist>
