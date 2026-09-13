@@ -1,0 +1,51 @@
+name: Build and test Hearth Mac
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['mac/**', '.github/workflows/hearth-mac.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - run: bash mac/build.sh
+      - name: Native core checks
+        run: mac/build/Hearth.app/Contents/MacOS/Hearth --self-test --report "$PWD/mac/build/reports/core-arm64.json"
+        timeout-minutes: 3
+      - name: Native interface checks
+        run: mac/build/Hearth.app/Contents/MacOS/Hearth --ui-test --report "$PWD/mac/build/reports/ui-arm64/report.json"
+        timeout-minutes: 3
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: mac-build
+          path: |
+            mac/build/Hearth-Mac.zip
+            mac/build/SHA256SUMS-Mac.txt
+            mac/build/reports/
+          if-no-files-found: error
+  intel-check:
+    needs: build
+    runs-on: macos-15-intel
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: mac-build
+          path: package
+      - run: ditto -x -k package/Hearth-Mac.zip package
+      - name: Native core checks
+        run: package/Hearth.app/Contents/MacOS/Hearth --self-test --report "$PWD/reports/core-intel.json"
+        timeout-minutes: 3
+      - name: Native interface checks
+        run: package/Hearth.app/Contents/MacOS/Hearth --ui-test --report "$PWD/reports/ui-intel/report.json"
+        timeout-minutes: 3
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: mac-intel-verification
+          path: reports/
