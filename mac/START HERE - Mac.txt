@@ -1,0 +1,93 @@
+HEARTH FOR MAC - PREVIEW 0.1
+
+Requirements: macOS 13 Ventura or newer, on an Apple Silicon or Intel Mac,
+an internet connection, and your own Corvex Token Factory account/API key.
+You do not need a GitHub account, OpenAI subscription or local AI model.
+
+1. GET YOUR CORVEX ACCOUNT READY
+   Start at https://www.corvex.ai/token-factory and complete your signup.
+   Credit amounts and expiry depend on Corvex and your invitation.
+   Hearth itself does not grant free credits.
+
+2. DOWNLOAD THE MAC APP
+   https://github.com/Sophenor/hearth-corvex/releases/tag/mac-v0.1.0
+   Under Assets, choose Hearth-Mac.zip, NOT the source-code ZIP.
+
+3. INSTALL
+   Open your Downloads folder and double-click Hearth-Mac.zip.
+   Drag the extracted Hearth app into Applications. Open it there.
+   If macOS asks whether to open an app downloaded from the internet,
+   check that it came from the GitHub link above and choose Open.
+
+4. IF APPLE BLOCKS THE FIRST OPEN
+   This independent preview has no Apple Developer ID signature or
+   notarization. macOS may say it cannot verify the developer.
+   After trying to open it, go to System Settings > Privacy & Security.
+   Find the notice about Hearth, choose Open Anyway, and confirm Open.
+   Your Mac may ask you to authenticate. This is a one-time exception
+   for this app, not an instruction to turn off Mac security.
+   If your Mac instead reports malware or a damaged app, stop and ask
+   for help. Do not disable Gatekeeper, antivirus or other protections.
+   An employer/university-managed Mac may prevent this exception.
+
+5. CONNECT ONCE
+   In Hearth, click the link to your Corvex API keys page, or visit:
+   https://tokenfactory.corvex.cloud/app/settings/keys
+   Sign in to Corvex in your browser and create an API key.
+   Copy the key, return to Hearth, paste it, and click Connect.
+   Use the API key, NOT your Corvex password. Treat it like a password:
+   never send it to other people or put it in a group chat.
+   Hearth stores it in your Mac's Keychain, not in exported chats.
+
+6. START CHATTING
+   Try: "Help me write a friendly email about..."
+   Chats save automatically on this Mac. Use New chat for a new topic,
+   click an old chat in the sidebar to continue, or use Export to save
+   a readable copy. Choose a model from your live Corvex catalogue.
+   Changing models does not require another app download, although a
+   new model's tool compatibility is not guaranteed.
+
+7. OPTIONAL COMPUTER AND FILE HELP
+   Turn on Computer help if you want a snapshot of Mac performance,
+   free disk space and visible running apps. Ask, "Why might my Mac
+   feel slow?" Hearth asks you separately before requesting a normal
+   app quit. Save your work before approving a quit.
+   Choose one folder to let Hearth list it and read small UTF-8 text
+   files. Files it reads may be sent to Corvex. Avoid sensitive folders.
+   Saving a .txt, .md or .csv draft requires approval of its exact path
+   and text; an existing version is backed up. It cannot delete files,
+   force-quit apps, run arbitrary commands or control your whole Mac.
+   These permissions reset when you close Hearth.
+
+8. OPTIONAL DICTATION
+   Enable Dictation in System Settings > Keyboard, click the message
+   box, and use the shortcut shown in those settings. The Dictate
+   button also attempts to start the system's dictation feature.
+   This uses macOS, with no large speech model bundled into Hearth.
+   Availability, privacy and accuracy depend on your Mac/settings;
+   Apple may process audio. Check the words before clicking Send.
+
+IF SOMETHING GOES WRONG
+   No connection: check your internet, key, account balance and model.
+   Rate limit: wait before trying again. Automatic retry loops are not
+   used. A stopped request may still incur Corvex charges.
+   Keychain prompt: the app needs permission to store/read its own key.
+   A future preview build may prompt again. Never put your Mac login
+   password into the chat or Corvex key field.
+   Replies may take a while; this preview displays the final answer
+   rather than streaming individual words. Stop cancels the request.
+   Normal conversations are local to this Mac, not synced to Windows
+   or Corvex's web chat. Data lives at:
+   ~/Library/Application Support/HearthCorvex
+   The app's Open data folder control opens this location.
+   Disconnect removes Hearth's saved API key; saved chats remain.
+
+LIMITS
+   This preview does not browse the live web, read PDF/Word/images,
+   send emails, provide full desktop automation or guarantee correct
+   AI answers. Its model runs at Corvex, not locally on your Mac.
+   Selected messages and permitted tool results go directly to Corvex
+   and use your own balance. There is no shared family API key.
+
+The Windows download and Windows instructions remain separate:
+https://github.com/Sophenor/hearth-corvex/releases/latest/download/Hearth-Windows.zip
