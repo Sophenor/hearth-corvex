@@ -6,12 +6,13 @@ using Microsoft.Extensions.AI;
 
 namespace Hearth;
 
-public sealed class ToolBox(bool computerAccess, string? folder, Func<string, string, bool> confirm, Action<string> activity, CancellationToken cancellationToken)
+public sealed partial class ToolBox(bool computerAccess, string? folder, Func<string, string, bool> confirm, Action<string> activity, CancellationToken cancellationToken)
 {
     private readonly Dictionary<int, long> observed = [];
     public IList<AITool> Tools()
     {
         List<AITool> tools = [];
+        tools.Add(AIFunctionFactory.Create(WebSearch, "web_search", "Search the internet for current information and source links. The user approves the query before it is sent to Exa. Never include private file contents or credentials."));
         if (computerAccess)
         {
             tools.Add(AIFunctionFactory.Create(SystemSummary, "computer_health", "Read current Windows CPU, memory, disk space and top memory-using apps. Does not change anything."));
@@ -22,6 +23,10 @@ public sealed class ToolBox(bool computerAccess, string? folder, Func<string, st
             tools.Add(AIFunctionFactory.Create(ListFolder, "list_folder", "List up to 150 entries inside the user-selected folder. Paths are relative. Does not follow junctions or symlinks."));
             tools.Add(AIFunctionFactory.Create(ReadText, "read_text", "Read a text file in the selected folder, up to 100 KB. No images, PDFs, Office files, secrets or binaries."));
             tools.Add(AIFunctionFactory.Create(SaveText, "save_text", "Save a .txt, .md or .csv file within the selected folder only after the user approves the exact path and contents. Can create a draft or report, not executable code."));
+            tools.Add(AIFunctionFactory.Create(ReadDocument, "read_document", "Extract text from a PDF or Word .docx in the chosen folder. Page/character limits apply. Does not OCR images or preserve layout."));
+            tools.Add(AIFunctionFactory.Create(EditText, "edit_text", "Replace one exact unique text passage in a small .txt, .md or .csv file. Shows the complete resulting file for approval and backs up the original."));
+            tools.Add(AIFunctionFactory.Create(CreateFolder, "create_folder", "Create one named subfolder inside an existing folder after approval."));
+            tools.Add(AIFunctionFactory.Create(TransferFile, "transfer_file", "Copy or move/rename one ordinary file inside the chosen folder after approval. Never overwrites a destination or moves a folder."));
         }
         return tools;
     }

@@ -25,3 +25,6 @@ System.Speech/10.0.12 — MIT
 The self-contained executable also includes .NET runtime and Windows Desktop components.
 See the Microsoft .NET licence and third-party notices in licenses/.
 Microsoft WebView2 is covered by its separate SDK terms. Its installed runtime is supplied by Microsoft.
+
+PdfPig/0.1.16 — Apache-2.0 (licenses/PdfPig-Apache-2.0.txt)
+Web searches use Exa's hosted MCP service: https://exa.ai/docs/reference/exa-mcp. Search queries are sent only after approval. Free service limits apply.
