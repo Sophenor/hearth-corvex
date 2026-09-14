@@ -43,7 +43,20 @@ public static class Verification
             Check("Replacing a draft preserves prior contents in unique backup", Directory.GetFiles(scope, "allowed.md.*.bak").Any(p => File.ReadAllText(p) == "approved content") && File.ReadAllText(Path.Combine(scope, "allowed.md")) == "replacement");
             Check("Drive root scope remains absolute", ToolBox.ResolveScopedPath(Path.GetPathRoot(scope)!, ".") == Path.GetPathRoot(scope));
             approvedTool.SaveText("run.ps1", "bad"); Check("Executable file types cannot be written", !File.Exists(Path.Combine(scope, "run.ps1")));
-            Check("No tools before opting in", new ToolBox(false, null, (_, _) => true, _ => { }, CancellationToken.None).Tools().Count == 0);
+            Check("Only approval-gated search before opting into files/computer", new ToolBox(false, null, (_, _) => true, _ => { }, CancellationToken.None).Tools().Count == 1);
+            Check("Declined web search makes no request", (await deniedTool.WebSearch("example")).Contains("declined"));
+            Check("Search JSON parsing", ToolBox.ParseSearch("{\"result\":{\"content\":[{\"text\":\"https://example.com verified fixture\"}]}}").Contains("https://example.com"));
+            Check("Search SSE parsing", ToolBox.ParseSearch("event: message\ndata: {\"result\":{\"content\":[{\"text\":\"fixture SSE\"}]}}\n").Contains("fixture SSE"));
+            deniedTool.EditText("hello.txt", "fixture", "changed");
+            Check("Declined edit preserves original", File.ReadAllText(Path.Combine(scope, "hello.txt")) == "fixture text");
+            approvedTool.EditText("hello.txt", "fixture", "changed");
+            Check("Approved exact edit and backup", File.ReadAllText(Path.Combine(scope, "hello.txt")) == "changed text" && Directory.GetFiles(scope, "hello.txt.*.bak").Any(p => File.ReadAllText(p) == "fixture text"));
+            approvedTool.CreateFolder("drafts"); approvedTool.TransferFile("hello.txt", "drafts/copy.txt");
+            Check("Copy preserves both files", File.ReadAllText(Path.Combine(scope, "drafts/copy.txt")) == "changed text" && File.Exists(Path.Combine(scope, "hello.txt")));
+            using (var zip = System.IO.Compression.ZipFile.Open(Path.Combine(scope, "example.docx"), System.IO.Compression.ZipArchiveMode.Create))
+            using (var writer = new StreamWriter(zip.CreateEntry("word/document.xml").Open())) writer.Write("<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><w:body><w:p><w:r><w:t>Known document text</w:t></w:r></w:p></w:body></w:document>");
+            Check("Word extraction reads known fixture", approvedTool.ReadDocument("example.docx").Contains("Known document text"));
+            if (args.Contains("--web-test")) Check("Live search returns official Python source", (await approvedTool.WebSearch("site:docs.python.org pathlib Path official documentation")).Contains("docs.python.org"));
             var longChat = new Conversation { Turns = Enumerable.Range(0, 10).Select(i => new Turn { User = new string('x', 20000), Answer = "answer", Status = "done" }).ToList() };
             var context = Corvex.Context(longChat, "system", out var included);
             Check("Context bounded on whole turns", included < 10 && context.Count == 1 + included * 2);

@@ -1,0 +1,20 @@
+Hearth Windows 0.1.1 preview
+
+Close your existing Hearth window. Extract this ZIP fully, then run Hearth.exe
+inside the extracted folder. It uses your existing saved chats and connection.
+Keep your old application folder so you can return to it if needed.
+
+New things to try:
+- "Search the web for ... and give me the source links."
+  Hearth shows the query for approval before sending it to Exa's search service.
+  The public free search service has limits and may be temporarily unavailable.
+- Choose a folder, then ask "Read this PDF/Word document and summarise it."
+  Supports PDF text and .docx body text up to 20 MB. No scanned-page OCR.
+- "Edit this passage in notes.txt" or "Create a folder for these drafts."
+- "Copy this file into that folder" or "Rename this file."
+
+Changes require approval and stay inside your chosen folder. Text edits support
+.txt, .md and .csv files and retain a backup. Transfers never overwrite files.
+This is a small upgrade, not the proposed full browser/terminal agent backend.
+It does not install Agent Spaces or provide email sending or desktop control.
+The existing Windows and Mac downloads are unchanged. This preview is Windows only.
